@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Board</title>
+    <link rel="stylesheet" href="./css/discussion.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">LOGO</div>
+            <nav>
+                <a href="dashboard.html" class="nav-item">HOME</a>
+                <a href="mycourse.html" class="nav-item">CATALOG</a>
+                <a href="journey.html" class="nav-item"><b>DISCUSSION</b></a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="user-info">
+                <div class="user-icon"></div>
+                <div class="user-name">Chuuung</div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="filter-title">Filter</div>
+                <div class="filter-section">
+                    <p>Languages</p>
+                    <div class="filter-option"><input type="checkbox"> C++</div>
+                    <div class="filter-option"><input type="checkbox"> Java</div>
+                    <div class="filter-option"><input type="checkbox"> Python</div>
+                </div>
+                <div class="filter-section">
+                    <p>Status</p>
+                    <div class="filter-option"><input type="checkbox"> Answered</div>
+                    <div class="filter-option"><input type="checkbox"> No Answer</div>
+                </div>
+                <div class="feedback"> 
+                    <span class="fbicon">✎</span>
+                    <span class="text">Feedback</span>
+                </div>
+            </div>
+            <div class="discussion-content">
+                <div class="discussion-header">
+                    <h2>| Discussion</h2>
+                    <div class="search-discussions">
+                        <input type="text" placeholder="Search Discussion">
+                    </div>
+                    <button class="ask-new-btn" id="ask-new-btn">+ Ask New</button>
+                </div>
+                <div class="filter-sort" id="filter-sort">
+                    <select id="sort-option">
+                        <option value="most-vote">Most vote</option>
+                        <option value="recent">Recent</option>
+                    </select>
+                </div>
+                <div class="discussion-list" id="discussion-list">
+                    <!--discussion items-->
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script type="module" src="./js/discussion-board.js"></script>
+    <script>
+        document.getElementById('ask-new-btn').addEventListener('click', function(){
+            window.location.href = 'addNewPost.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script type="module" src="./js/firebase-config.js"></script>
+    <script type="module" src="./js/signInUp.js"></script> 
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-image">
+            <img src="./img/bookwithbuld.png" alt="Book with Lightbulb">
+        </div>
+        <div class="login-form">
+            <h1>Welcome</h1>
+            <form>
+                <div class="input-group">
+                    <input type="email" id="email-su" placeholder="Email" required>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="username-su" placeholder="Username" required>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password-su" placeholder="Password" required>
+                    <div class="underline">
+                        <span class="eye-icon">
+                            <img src="./img/disable_eye_white.png" alt="disable_eye_white">
+                        </span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="cpassword-su" placeholder="Confirm Password" required>
+                    <div class="underline">
+                        <span class="eye-icon">
+                            <img src="./img/disable_eye_white.png" alt="disable_eye_white">
+                        </span>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button id='signup-su' type="button" class="login-btn">Sign Up</button>
+                    <button id='login-su' type="button" class="signup-btn">Login</button>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Forget your password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('login-su').addEventListener('click', function(){
+            window.location.href = 'login.html';
+        });
+    </script>
+    <script type="module" src="./js/firebase-config.js"></script>
+    <script type="module" src="./js/signInUp.js"></script> 
+</body>
+</html>

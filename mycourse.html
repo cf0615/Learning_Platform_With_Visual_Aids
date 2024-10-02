@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Course</title>
+    <link rel="stylesheet" href="./css/dashboardcss.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">LOGO</div>
+            <nav>
+                <a href="dashboard.html" class="nav-item"><b>HOME</b></a>
+                <a href="mycourse.html" class="nav-item">CATALOG</a>
+                <a href="journey.html" class="nav-item">DISCUSSION</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="user-info">
+                <div class="user-icon"></div>
+                <div class="user-name">Chuuung</div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="menu-item">Dashboard</div>
+                <div class="menu-item selected">My Course</div>
+                <div class="menu-item">Journey</div>
+                <div class="feedback">
+                    <span class="fbicon">✎</span>
+                    <span class="text">Feedback</span>
+                </div>
+            </div>
+            <div class="course-container">
+                <div class="course" id="course-cpp">
+                    <div class="course-header" onclick="toggleCourse('course-cpp')">
+                        <h2>Introduction to C++</h2>
+                        <div class="cprogress">
+                            <div class="cprogress-bar" id="cppb"></div>
+                            <div class="cprogress-text" id="cppt">25%</div>
+                            <span class="expand-icon">&#9650;</span> <!-- Up arrow initially -->
+                        </div>
+                    </div>
+                    <div class="course-content-container" style="display: block;">
+                        <div class="module-title">Current Module: Hello World</div>
+                        <div class="course-content">
+                            <div class="lesson">
+                                <div class="lesson-icon"></div>
+                                <div class="lesson-info">
+                                    <div>Article</div>
+                                    <div>Introduction</div>
+                                </div>
+                            </div>
+                            <div class="lesson">
+                                <div class="lesson-icon"></div>
+                                <div class="lesson-info">
+                                    <div>Lesson</div>
+                                    <div>C++ Syntax</div>
+                                </div>
+                            </div>
+                            <div class="lesson">
+                                <div class="lesson-icon"></div>
+                                <div class="lesson-info">
+                                    <div>Lesson</div>
+                                    <div>Input/Output</div>
+                                </div>
+                            </div>
+                            <div class="lesson">
+                                <div class="lesson-icon"></div>
+                                <div class="lesson-info">
+                                    <div>Quiz</div>
+                                    <div>Hello World</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-actions" style="display: block;">
+                        <button class="course-button">Resume</button>
+                        <button class="course-button">View Syllabus</button>
+                        <button class="pin-button">Pin to top</button>
+                    </div>        
+                </div>
+                
+                <div class="course" id="course-java">
+                    <div class="course-header" onclick="toggleCourse('course-java')">
+                        <h2>Learn Java</h2>
+                        <div class="cprogress">
+                            <div class="cprogress-bar" id="javab"></div>
+                            <div class="cprogress-text" id="javat">45%</div>
+                            <span class="expand-icon">&#9660;</span>
+                        </div>
+                    </div>
+                    <div class="module-title">Current Module: Hello World</div>
+                    <div class="course-content" style="display: none;">
+                        <!-- Content similar to the "Introduction to C++" block -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    function toggleCourse(courseId) {
+        const course = document.getElementById(courseId);
+        const contentContainer = course.querySelector('.course-content-container');
+        const courseAction = course.querySelector('.course-actions');
+        const icon = course.querySelector('.expand-icon');
+
+        if (contentContainer.style.display === 'none' || contentContainer.style.display === '' && 
+            courseAction.style.display === 'none' || courseAction.style.display === ''){
+            contentContainer.style.display = 'block';
+            courseAction.style.display = 'block';
+            course.style.backgroundColor = '#ABC7E8';
+            icon.innerHTML = '&#9650;'; // Up arrow
+        } else {
+            contentContainer.style.display = 'none';
+            courseAction.style.display = 'none'
+            course.style.backgroundColor = '#FFFFFF';
+            icon.innerHTML = '&#9660;'; // Down arrow
+        }
+    }
+
+
+
+    function setProgress(progress, progressName) {
+        const progressBar = document.getElementById(progressName+'b');
+        const progressText = document.getElementById(progressName+'t');
+        
+        // Set the progress percentage
+        progressBar.style.backgroundSize = progress + '% 100%';
+        progressText.textContent = progress + '%';
+    }
+
+    setProgress(25, "cpp");
+    setProgress(45, "java");
+</script>

@@ -1,0 +1,755 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #E4EDFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.dashboard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(0deg, #4D70A5, #4D70A5);
+    color: #FFFFFF;
+}
+
+.logo {
+    font-size: 2.5rem;
+    margin-left: 55px;
+    margin-right: -100px;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-item {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(217, 217, 217, 0.5);
+    border: 2px solid #FFFFFF;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    color: #FFFFFF;
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-icon {
+    width: 3rem;
+    height: 3rem;
+    background: #FFFFFF;
+    border-radius: 50%;
+}
+
+.user-name {
+    font-size: 1.5rem;
+}
+
+.main-content {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    height: fit-content;
+}
+
+.sidebar {
+    width: 15%;
+    background: #E4EDFF;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.menu-item {
+    font-size: 1.5rem;
+    color: #4D70A5;
+    text-decoration: none;
+}
+
+.menu-item.selected {
+    background: #ABC7E8;
+    color: #FFFFFF;
+    padding: 1rem;
+    border-radius: 100px;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.course-info {
+    background: #FFFFFF;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.course-title {
+    font-size: 2rem;
+    color: #4D70A5;
+}
+
+.course-module {
+    font-size: 1.5rem;
+    color: #ABC7E8;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.button {
+    background: #FFC700;
+    border: none;
+    border-radius: 100px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.progress-bar-container {
+    display: flex;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.progress-bar {
+    position: relative;
+    height: 1rem;
+    background: #4E5A87;
+    border-radius: 10px;
+    width: 100%;
+    overflow: visible;
+}
+
+.progress {
+    height: 100%;
+    background: #FFC700;
+    border-radius: 10px 0 0 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.progress-icons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: -15px; 
+    left: 0;
+    z-index: 2;
+    border: #4E5A87;
+}
+
+.icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid #6580A7;
+    background: #E1E8FF;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    background: inherit;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.progress::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    background: #FFC700;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.icon.filled {
+    background: #FFC700;
+    border: 2px solid #4E5A87;
+}
+
+.icon.filled::before {
+    background: #FFC700;
+}
+
+
+.statistics {
+    display: flex;
+    gap: 2rem;
+}
+
+.study-statistic,
+.assessment-marks {
+    background: #FFFFFF;
+    padding: 2rem;
+    border-radius: 10px;
+    flex-grow: 1;
+}
+
+.title {
+    font-size: 2rem;
+    color: #4D70A5;
+    margin-bottom: 1rem;
+}
+
+.chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.bar {
+    width: 3rem;
+    background: #97ADFD;
+    border-radius: 3rem 3rem 0 0;
+}
+
+.bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.days {
+    padding-top: 10px;
+}
+
+.days span {
+    font-size: 1rem;
+    color: #4E5A87;
+}
+
+.marks-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.circle {
+    width: 10rem;
+    height: 10rem;
+    background: conic-gradient(#FFC700 0% 75%, #97ADFD 75% 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.percentage {
+    font-size: 2rem;
+    color: #4E5A87;
+}
+
+.text-button {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem; /* Adjust font size as needed */
+    font-weight: 500;
+    color: #4E5A87;
+    background-color: #E4EDFF; /* Assuming background similar to the provided image */
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.text-button .arrow {
+    margin-left: 10px;
+    font-size: 1.2rem; /* Adjust arrow size as needed */
+}
+
+.text-button:hover {
+    text-decoration: underline; /* Slightly darker shade on hover */
+}
+
+.feedback {
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem; /* Adjust font size as needed */
+    color: #4E5A87;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.feedback .fbicon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.feedback:hover {
+    text-decoration: underline;
+    text-decoration-style: solid;
+}
+
+.course-container {
+    width: 80%;
+    margin-top: 30px;
+    margin-right: 150px;
+}
+
+.course {
+    background-color: #ABC7E8;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-content-container {
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    padding: 10px;
+}
+
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.course-header h2 {
+    font-size: 1.5rem;
+    color: #4D70A5;
+    margin: 0;
+}
+
+.cprogress {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 130px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cprogress-bar {
+    width: 60px; /* Set to match your design */
+    height: 20px;
+    border-radius: 20px;
+    background:
+    linear-gradient(orange 0 0) 0/0% no-repeat
+    #ABC7E8;
+    border: 1px solid white; /* White border around the progress bar */
+    margin-right: 10px;
+}
+
+.cprogress-text {
+    font-size: 0.8rem;
+    color: white;
+    margin-right: 10px;
+}
+
+.module-title {
+    font-size: 1rem;
+    color: #ABC7E8;
+    margin-top: 10px;
+}
+
+.course-content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lesson {
+    display: flex;
+    align-items: center;
+}
+
+.lesson-icon {
+    width: 20px;
+    height: 20px;
+    background-color: #E1E8FF;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.lesson-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.course-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.course-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #E1E8FF;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #4D70A5;
+}
+
+.pin-button {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: #4D70A5;
+    cursor: pointer;
+}
+
+.expand-icon {
+    font-size: 1.2rem;
+    color: #4D70A5;
+}
+
+/*journey*/
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    background: #FFFFFF;
+    border-radius: 10px;
+    width: 200px;
+    height: 70px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #4D70A5;
+}
+
+.stat-value {
+    font-size: 40px;
+    color: #FFC700;
+    font-weight: 300;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.chart-box{
+    background: #FFFFFF;
+    border-radius: 30px;
+    width: 49%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.record-box {
+    background: #FFFFFF;
+    border-radius: 30px;
+    width: 40%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-title, .record-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4D70A5;
+    margin-bottom: 20px;
+}
+
+.chart-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 200px;
+}
+
+.chart-bar {
+    width: 12%;
+    background: #97ADFD;
+    border-radius: 10px 10px 0 0;
+}
+
+.calendar-container {
+    background: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 40%;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4D70A5;
+    display: flex;
+    align-items: center;
+}
+
+.calendar-icon {
+    margin-right: 8px;
+}
+
+.calendar-month {
+    text-align: right;
+}
+
+.calendar-month-number {
+    font-size: 50px;
+    color: #ABC7E8;
+    font-weight: 700;
+}
+
+.calendar-month-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: #4D70A5;
+    margin-top: 5px;
+}
+
+.calendar-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 5px;
+    color: #ABC7E8;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+.calendar-weekdays-text {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Creates 7 equal columns */
+    gap: 5px; /* Adds space between the grid items */
+    justify-items: center; /* Centers the items horizontally */
+    align-items: center; /* Centers the items vertically */
+}
+
+.calendar-day, .calendar-empty {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4A5660;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.calendar-empty {
+    visibility: hidden;
+}
+
+.calendar-day {
+    background: #F0F0F0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.calendar-day:hover {
+    background: #E0E0E0;
+}
+
+.highlighted {
+    background: #FFC700;
+    color: #FFFFFF;
+}
+
+.badges-container {
+    background: #FFFFFF;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.badge-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4D70A5;
+    margin-bottom: 20px;
+}
+
+.badge-box {
+    display: flex;
+    /*justify-content: space-around;*/
+    gap: 4rem;
+}
+
+.badge img {
+    width: 130px;
+    height: 130px;
+}
+
+.content h2 {
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the font bold */
+    color: #5A7392; /* Adjust the color to a soft blue */
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Vertically center the text with the line */
+}
+
+.content h2::before {
+    content: '';
+    display: inline-block;
+    width: 3px; /* Thickness of the vertical line */
+    height: 100%; /* Height of the line matching the text */
+    background-color: #ADC4E6; /* Light blue color for the line */
+    margin-right: 10px; /* Space between the line and text */
+}
+
+/* Button styling */
+.new-btn {
+    background-color: #6F8FC7;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.new-btn:hover {
+    background-color: #ADC4E6;
+}
+
+/* Card container */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Card styles */
+.card {
+    background-color: #fff;
+    border: 1px solid #E0E7FF;
+    border-radius: 8px;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #5A7392;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-header i {
+    margin-right: 8px;
+}
+
+.card-body p {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.edit-btn {
+    background-color: #ADC4E6;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.edit-btn i {
+    font-size: 0.9rem;
+}
+
+.edit-btn:hover {
+    background-color: #789CC1;
+}
