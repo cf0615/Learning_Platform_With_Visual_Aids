@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+    <link rel="stylesheet" href="./css/quiz.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">LOGO</div>
+            <nav>
+                <a href="dashboard.html" class="nav-item">HOME</a>
+                <a href="mycourse.html" class="nav-item">CATALOG</a>
+                <a href="journey.html" class="nav-item"><b>DISCUSSION</b></a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="user-info">
+                <div class="user-icon"></div>
+                <div class="user-name">Chuuung</div>
+            </div>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="main-content">
+            <div class="module-container">
+                <div class="module-info">
+                    <div class="course-info">
+                        <div class="highlight-bar"></div>
+                        <div class="course-info-content">
+                            <h2>Course Title</h2>
+                            <h3>Module Title</h3>
+                        </div>
+                    </div>
+                    <h4>Article Title</h4>
+                </div>
+                <div id="quiz-container" class="quiz-container">
+                    <!-- Questions will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/quiz.js"></script>
+</body>
+</html>

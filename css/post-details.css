@@ -94,12 +94,14 @@ nav {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    margin-right: 4rem;
 }
 
 .post-header h2 {
     margin: 0;
     font-size: 2rem;
     font-weight: bold;
+    margin-left: 5rem;
 }
 
 .post-meta {
@@ -113,6 +115,8 @@ nav {
     border-radius: 5px;
     border: 1px solid #E0E7FF;
     margin-bottom: 2rem;
+    margin-left: 5rem;
+    flex-grow: 1;
 }
 
 .comment-section {
@@ -218,13 +222,23 @@ blockquote {
     color: #555555;  /* Grey color for the quote text */
 }
 
-.vote-section {
+.vote-container{
+    position: relative;
     display: flex;
-    flex-direction: column; /* Align items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    gap: 10px; /* Space between upvote, vote text, and downvote buttons */
-    margin: 10px 0; /* Optional margin for spacing */
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.vote-section {
+    position: absolute;            /* Absolute positioning to keep it on the left side */
+    top: 50%;                      /* Vertical center of the container */
+    left: 0;                       /* Keep it fixed on the left side */
+    transform: translateY(-45%);   /* Correct for centering offset */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     width: 20px;
 }
 
@@ -261,7 +275,9 @@ blockquote {
 }
 
 .dots {
-    position: relative;
+    position: absolute;
+    top: 18px;
+    right: 45px;
     width: 20px;
     display: flex;
     flex-direction: column;
@@ -320,4 +336,5 @@ blockquote {
     width: auto;
     padding: 20px;
     background-color: #888888;
+    position: relative;
 }

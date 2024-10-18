@@ -1,0 +1,17 @@
+import BaseTheme, { BaseTooltip } from './base';
+import type { Bounds } from '../core/selection';
+import type Quill from '../core';
+import type { ThemeOptions } from '../core/theme';
+import type Toolbar from '../modules/toolbar';
+declare class BubbleTooltip extends BaseTooltip {
+    static TEMPLATE: string;
+    constructor(quill: Quill, bounds?: HTMLElement);
+    listen(): void;
+    cancel(): void;
+    position(reference: Bounds): number;
+}
+declare class BubbleTheme extends BaseTheme {
+    constructor(quill: Quill, options: ThemeOptions);
+    extendToolbar(toolbar: Toolbar): void;
+}
+export { BubbleTooltip, BubbleTheme as default };

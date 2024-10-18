@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Add New Course</title>
     <link rel="stylesheet" href="./css/addNewCourse.css">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
 </head>
 <body>
     <div class="dashboard">
+        <!-- Header and Navigation -->
         <div class="header">
             <div class="logo">LOGO</div>
             <nav>
                 <a href="dashboard.html" class="nav-item"><b>HOME</b></a>
-                <a href="mycourse.html" class="nav-item">NOTIFY</a>
+                <a href="notify.html" class="nav-item">NOTIFY</a>
                 <a href="discussion.html" class="nav-item">DISCUSSION</a>
-                <a href="discussion.html" class="nav-item">FEEDBACK</a>
+                <a href="feedback.html" class="nav-item">FEEDBACK</a>
             </nav>
             <div class="search-bar">
                 <input type="text" placeholder="Search">
@@ -24,19 +26,20 @@
                 <div class="user-name">Chuuung</div>
             </div>
         </div>
+
+        <!-- Main Content -->
         <div class="main-content">
-            
             <div class="container">
                 <h1>Add New Course</h1>
-                
+        
                 <!-- Course Details -->
                 <div class="course-details">
                     <label for="course-title">Course Title</label>
                     <input type="text" id="course-title" placeholder="Enter course title">
-                    
+        
                     <label for="course-description">Course Description</label>
                     <textarea id="course-description" placeholder="Enter course description"></textarea>
-                    
+        
                     <label for="course-category">Category</label>
                     <select id="course-category">
                         <option value="C++">C++</option>
@@ -44,56 +47,29 @@
                         <option value="Python">Python</option>
                     </select>
                 </div>
-                
+        
                 <!-- Module Section -->
-                <div class="module-section">
-                    <h3>Module</h3>
-                    <label>Module Title</label>
-                    <input type="text" placeholder="Enter module title" class="module-title-input">
-                
-                    <div class="module-toggle">
-                        <button class="btn" onclick="toggleSection('article-section')">Add Article</button>
-                        <button class="btn" onclick="toggleSection('lesson-section')">Add Lesson</button>
-                        <button class="btn" onclick="toggleSection('quiz-section')">Add Quiz</button>
-                    </div>
-                
-                    <div id="article-section" class="section">
-                        <label>Article Title</label>
-                        <input type="text" placeholder="Enter article title">
-                        <div id="article-editor" class="editor"></div>
-                    </div>
-                
-                    <div id="lesson-section" class="section">
-                        <label>Lesson Title</label>
-                        <input type="text" placeholder="Enter lesson title">
-                        <div id="lesson-editor" class="editor"></div>
-                    </div>
-                
-                    <div id="quiz-section" class="section">
-                        <label>Quiz Title</label>
-                        <input type="text" placeholder="Enter quiz title">
-                        <div id="quiz-editor" class="editor"></div>
-                    </div>
-                
-                    <button id="add-module" class="btn">Add Module</button>
-                </div>                
-            
+                <div id="module-section">
+                    <h3>Modules</h3>
+                    <!-- Modules will be dynamically appended here -->
+                </div>
+                <button id="add-module" class="btn">Add Module</button>
+        
+                <!-- Editor Section (placed below the modules) -->
+                <div id="editor-section" class="hidden">
+                    <h3>Editor</h3>
+                    <div id="editor-tabs"></div>
+                    <div id="editor-content"></div>
+                </div>
+        
                 <!-- Save and Preview -->
-                <button id="preview-course">Preview</button>
-                <button id="submit-course">Submit</button>
+                <button id="preview-course" class="btn">Preview</button>
+                <button id="submit-course" class="btn">Submit</button>
             </div>
-            
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.min.js"></script>
+    <script type="module" src="./js/addNewCourse.js"></script>
 </body>
 </html>
-
-<script type="module" src="./js/addNewCourse.js"></script>
-<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-<script>
-    function toggleSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        section.style.display = section.style.display === 'none' || !section.style.display ? 'block' : 'none';
-    }
-</script>
