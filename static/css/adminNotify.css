@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #E4EDFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.dashboard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(0deg, #4D70A5, #4D70A5);
+    color: #FFFFFF;
+}
+
+.logo {
+    font-size: 2.5rem;
+    margin-left: 55px;
+    margin-right: -100px;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-item {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(217, 217, 217, 0.5);
+    border: 2px solid #FFFFFF;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    color: #FFFFFF;
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-icon {
+    width: 3rem;
+    height: 3rem;
+    background: #FFFFFF;
+    border-radius: 50%;
+}
+
+.user-name {
+    font-size: 1.5rem;
+}
+
+.main-content {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.notification-list {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.editor-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.notification-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.edit-btn {
+    background: #4D70A5;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#editor-container {
+    height: 300px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+#push-btn {
+    background: #4D70A5;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+#announcement-title {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}

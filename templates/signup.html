@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/popup.css">
+    <script type="module" src="../static/js/firebase-config.js"></script>
+    <script type="module" src="../static/js/signInUp.js"></script> 
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-image">
+            <img src="../static/img/bookwithbuld.png" alt="Book with Lightbulb">
+        </div>
+        <div class="login-form">
+            <h1>Welcome</h1>
+            <form id="signup-form">
+                <div class="input-group">
+                    <label for="profile-picture" class="profile-label">Profile Picture</label>
+                    <img id="profile-preview" src="../static/img/default-user.jpg" alt="Profile Preview" class="profile-preview-img">
+                    
+                    <!-- Hidden File Input -->
+                    <input type="file" id="profile-picture" accept="image/*" style="display: none;">
+                    
+                    <!-- Custom Upload Button -->
+                    <button type="button" class="upload-btn" onclick="document.getElementById('profile-picture').click()">Choose Profile Picture</button>
+                    
+                    <span class="error-message" id="profile-picture-error"></span>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email-su" placeholder="Email" required>
+                    <span class="error-message" id="email-error"></span>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="username-su" placeholder="Username" required>
+                    <span class="error-message" id="username-error"></span>
+                    <div class="underline"></div>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password-su" placeholder="Password" required>
+                    <span class="error-message" id="password-error"></span>
+                    <div class="underline">
+                        <span class="eye-icon">
+                            <img src="../static/img/disable_eye_white.png" alt="disable_eye_white" id="togglePasswordSu">
+                        </span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="cpassword-su" placeholder="Confirm Password" required>
+                    <span class="error-message" id="cpassword-error"></span>
+                    <div class="underline">
+                        <span class="eye-icon">
+                            <img src="../static/img/disable_eye_white.png" alt="disable_eye_white" id="toggleCPasswordSu">
+                        </span>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button id='signup-su' type="button" class="login-btn">Sign Up</button>
+                    <button id='login-su' type="button" class="signup-btn">Login</button>
+                </div>
+                <div class="forgot-password">
+                    <a href="#" id="forgot-password-link">Forget your password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Redirect to login page
+        document.getElementById('login-su').addEventListener('click', function(){
+            window.location.href = '/';
+        });
+
+        // Toggle password visibility for password field
+        const passwordInputSu = document.getElementById("password-su");
+        const togglePasswordSu = document.getElementById("togglePasswordSu");
+
+        togglePasswordSu.addEventListener("click", function() {
+            const type = passwordInputSu.getAttribute("type") === "password" ? "text" : "password";
+            passwordInputSu.setAttribute("type", type);
+            togglePasswordSu.src = type === "password" ? "../static/img/disable_eye_white.png" : "../static/img/enable_eye_white.png";
+        });
+
+        // Toggle password visibility for confirm password field
+        const cpasswordInputSu = document.getElementById("cpassword-su");
+        const toggleCPasswordSu = document.getElementById("toggleCPasswordSu");
+
+        toggleCPasswordSu.addEventListener("click", function() {
+            const type = cpasswordInputSu.getAttribute("type") === "password" ? "text" : "password";
+            cpasswordInputSu.setAttribute("type", type);
+            toggleCPasswordSu.src = type === "password" ? "../static/img/disable_eye_white.png" : "../static/img/enable_eye_white.png";
+        });
+
+        document.getElementById("profile-picture").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById("profile-preview").src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

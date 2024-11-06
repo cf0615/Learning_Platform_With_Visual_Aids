@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Feedback Reply</title>
+    <link rel="stylesheet" href="../static/css/discussion.css">
+    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
+    <link rel="stylesheet" href="../static/css/popup.css">
+    <style>
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            width: auto;
+        }
+
+        .feedback-container {
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .feedback-details {
+            margin-bottom: 20px;
+        }
+
+        .feedback-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #486A9A;
+        }
+
+        .feedback-meta {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .feedback-content {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+            text-align: justify;
+        }
+
+        /* Editor container styling */
+        .editor-container {
+            width: 95%;
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        /* Submit button styling */
+        #submitReply {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #486A9A;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        #submitReply:hover {
+            background-color: #36577A;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">VizL</div>
+            <nav>
+                <a href="/admin/dashboard" class="nav-item">HOME</a>
+                <a href="/admin/notify" class="nav-item">NOTIFY</a>
+                <a href="/admin/discussion" class="nav-item">DISCUSSION</a>
+                <a href="/admin/feedback" class="nav-item"><b>FEEDBACK</b></a>
+            </nav>
+            <div >
+            </div>
+            <div class="user-info">
+                <div class="user-icon"></div>
+                <div class="user-name">Admin</div>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <div class="feedback-container">
+                <!-- Feedback Details -->
+                <div class="feedback-details">
+                    <div class="feedback-title" id="feedback-title">Loading...</div>
+                    <div class="feedback-meta" id="feedback-meta">Loading...</div>
+                    <div class="feedback-content" id="feedback-content">Loading...</div>
+                </div>
+
+                <!-- Reply Editor -->
+                <div class="editor-container">
+                    <div id="toolbar-container">
+                        <!-- Toolbar buttons -->
+                        <span class="ql-formats">
+                            <button class="ql-bold"></button>
+                            <button class="ql-italic"></button>
+                            <button class="ql-underline"></button>
+                            <button class="ql-link"></button>
+                        </span>
+                    </div>
+                    <div id="editor-container"></div>
+                </div>
+
+                <!-- Submit Reply Button -->
+                <button id="submitReply">Send Reply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script type="module" src="../static/js/firebase-config.js"></script>
+    <script type="module" src="../static/js/adminReplyFeedback.js"></script>
+    <script type="module" src="../static/js/updateUser.js"></script>
+
+</body>
+</html>

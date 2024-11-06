@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Course</title>
+    <link rel="stylesheet" href="../static/css/editCourse.css">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+    <link rel="stylesheet" href="../static/css/popup.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header and Navigation -->
+        <div class="header">
+            <div class="logo">VizL</div>
+            <nav>
+                <a href="/admin/dashboard" class="nav-item"><b>HOME</b></a>
+                <a href="/admin/notify" class="nav-item">NOTIFY</a>
+                <a href="/admin/discussion" class="nav-item">DISCUSSION</a>
+                <a href="/admin/feedback" class="nav-item">FEEDBACK</a>
+            </nav>
+            <div>
+            </div>
+            <div class="user-info">
+                <div class="user-icon"></div>
+                <div class="user-name">Chuuung</div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="container">
+                <!-- Course Overview Section -->
+                <div class="course-overview">
+                    <h1 id="course-title" contenteditable="true" class="editable-title">Course Title Here</h1>
+                    <textarea id="course-description" class="course-description" placeholder="Edit course description here"></textarea>
+
+                    <div class="form-group">
+                        <label for="course-category">Category:</label>
+                        <select id="course-category" class="category-select">
+                            <option value="C++">C++</option>
+                            <option value="Java">Java</option>
+                            <option value="Python">Python</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group badge-upload">
+                        <label for="course-badge">Course Badge:</label>
+                        <input type="file" id="course-badge" accept="image/*">
+                        <img id="badge-preview" class="badge-preview" style="display:none;" alt="Course Badge Preview">
+                    </div>
+
+                    <div class="course-actions">
+                        <button id="save-draft" class="btn save-btn">Save Draft</button>
+                        <button id="publish-course" class="btn publish-btn">Publish Course</button>
+                    </div>
+                </div>
+
+                <!-- Modules Section -->
+                <div class="modules-section">
+                    <h2>Modules</h2>
+                    <div id="module-list">
+                        <!-- Modules will be dynamically added here -->
+                    </div>
+                    <button id="add-new-module" class="btn add-module-btn">Add New Module</button>
+                </div>
+
+                <!-- Module Editor Section -->
+                <div id="module-editor-section" class="hidden">
+                    <h2>Edit Module</h2>
+                    <div class="editor-tabs" id="editor-tabs">
+                        <!-- Tabs for articles, lessons, quizzes will be dynamically generated here -->
+                    </div>
+                    <div id="editor-content" class="editor-content">
+                        <!-- Content editor will be displayed here based on the selected tab -->
+                    </div>
+                    <button id="save-module-changes" class="btn save-changes-btn">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.min.js"></script>
+    <script type="module" src="../static/js/updateUser.js"></script>
+    <script type="module" src="../static/js/editCourse.js"></script>
+</body>
+</html>

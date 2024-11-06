@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey</title>
+    <link rel="stylesheet" href="../static/css/dashboardcss.css">
+    <link rel="stylesheet" href="../static/css/popup.css">
+    <link rel="stylesheet" href="../static/css/notify.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">VizL</div>
+            <nav>
+                <a href="/user/dashboard" class="nav-item"><b>HOME</b></a>
+                <a href="/user/mycourse" class="nav-item">CATALOG</a>
+                <a href="/user/discussion" class="nav-item">DISCUSSION</a>
+            </nav>
+            <div>
+            </div>
+            <div class="user-info">
+                <div class="notification-icon" id="notification-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 16V11C18 7.93 16.37 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.64 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16ZM16 17H8V11C8 8.52 9.51 6.5 12 6.5C14.49 6.5 16 8.52 16 11V17Z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="user-profile-menu">
+                    <div class="user-icon"></div>
+                    <div class="user-name">Chuuung</div>
+                    <div class="user-dropdown hidden">
+                        <ul>
+                            <li id="edit-profile">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                                </svg>
+                                Edit Profile
+                            </li>
+                            <li id="logout">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
+                                </svg>
+                                Logout
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="announcement-list hidden" id="announcement-list"></div>
+        <div class="main-content">
+            <div class="sidebar">
+                <a href="/user/dashboard" class="menu-item">Dashboard</a>
+                <a href="/user/mycourse" class="menu-item">My Course</a>
+                <a href="/user/journey" class="menu-item selected">Journey</a>
+                <div class="feedback">
+                    <span class="fbicon">✎</span>
+                    <span class="text">Feedback</span>
+                </div>
+            </div>
+            <div class="course-container">
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-title">Courses In Progress</div>
+                        <div class="stat-value" id="course-in-progress">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-title">Courses Completed</div>
+                        <div class="stat-value" id="course-completed">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-title">Hours Learning</div>
+                        <div class="stat-value" id="hours-learning">5h 28m</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-title">Learning Streaks</div>
+                        <div class="stat-value" id="learning-streaks">7 days</div>
+                    </div>
+                </div>
+            
+                <div class="content-container">
+                    <div class="chart-box">
+                        <div class="study-statistic">
+                            <div class="title">Learning Time</div>
+                            <div class="chart" id="chart">
+                                
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <div class="calendar-title">
+                                <span class="calendar-icon">📅</span>
+                                Learning Record
+                            </div>
+                            <div class="calendar-month">
+                                <span id="calendar-month-number" class="calendar-month-number"></span>
+                                <span id="calendar-month-text" class="calendar-month-text"></span>
+                            </div>
+                        </div>
+                        <div class="calendar-body">
+                            <div class="calendar-weekdays">
+                                <div class="calendar-weekdays-text">SUN</div>
+                                <div class="calendar-weekdays-text">MON</div>
+                                <div class="calendar-weekdays-text">TUE</div>
+                                <div class="calendar-weekdays-text">WED</div>
+                                <div class="calendar-weekdays-text">THU</div>
+                                <div class="calendar-weekdays-text">FRI</div>
+                                <div class="calendar-weekdays-text">SAT</div>
+                            </div>
+                            <div id="calendar-dates" class="calendar-dates">
+                                <!-- Dates will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="badges-container">
+                    <div class="badge-title">Digital Badges</div>
+                    <div class="badge-box" id="badge-box">
+                        
+                    </div>
+                    <div id="badge-details" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="{{ url_for('static', filename='js/timeTracking.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/journey.js') }}"></script>
+    <script type="module" src="../static/js/updateUser.js"></script>
+</body>
+</html>

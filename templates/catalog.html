@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/css/dashboardcss.css">
+    <link rel="stylesheet" href="../static/css/notify.css">
+    <link rel="stylesheet" href="../static/css/popup.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">VizL</div>
+            <nav>
+                <a href="/user/dashboard" class="nav-item">HOME</a>
+                <a href="/user/catalog" class="nav-item"><b>CATALOG</b></a>
+                <a href="/user/discussion" class="nav-item">DISCUSSION</a>
+            </nav>
+            <div>
+            </div>
+            <div class="user-info">
+                <div class="notification-icon" id="notification-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 16V11C18 7.93 16.37 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.64 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16ZM16 17H8V11C8 8.52 9.51 6.5 12 6.5C14.49 6.5 16 8.52 16 11V17Z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="user-icon"></div>
+                <div class="user-name">Chuuung</div>       
+            </div>
+        </div>
+        <div class="announcement-list hidden" id="announcement-list">
+            <!-- Announcements will be dynamically loaded here -->
+        </div>
+        <div class="main-content">
+            <div class="content">
+                <h2 style="font-size: 2rem; margin-left: 20px;">Catalog</h2>
+                <div class="card-content">
+                    
+                    <div class="card-container">
+                        
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="module" src="../static/js/catalog.js"></script>
+<script type="module" src="{{ url_for('static', filename='js/timeTracking.js') }}"></script>
+<script type="module" src="../static/js/updateUser.js"></script>
+</script>

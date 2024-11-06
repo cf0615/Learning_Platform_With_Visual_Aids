@@ -1,0 +1,986 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #E4EDFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.dashboard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(0deg, #4D70A5, #4D70A5);
+    color: #FFFFFF;
+}
+
+.logo {
+    font-size: 2.5rem;
+    margin-left: 55px;
+    margin-right: -100px;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-item {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(217, 217, 217, 0.5);
+    border: 2px solid #FFFFFF;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    color: #FFFFFF;
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.user-icon {
+    width: 3rem;
+    height: 3rem;
+    background: #FFFFFF;
+    border-radius: 50%;
+}
+
+.user-name {
+    font-size: 1.5rem;
+}
+
+.main-content {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    height: fit-content;
+}
+
+.sidebar {
+    width: 15%;
+    background: #E4EDFF;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.menu-item {
+    font-size: 1.5rem;
+    color: #4D70A5;
+    text-decoration: none;
+}
+
+.menu-item.selected {
+    background: #ABC7E8;
+    color: #FFFFFF;
+    padding: 1rem;
+    border-radius: 100px;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.course-info {
+    background: #FFFFFF;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.course-title {
+    font-size: 2rem;
+    color: #4D70A5;
+}
+
+.course-module {
+    font-size: 1.5rem;
+    color: #ABC7E8;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.button {
+    background: #FFC700;
+    border: none;
+    border-radius: 100px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.progress-bar-container {
+    display: flex;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.progress-bar {
+    position: relative;
+    height: 1rem;
+    background: #4E5A87;
+    border-radius: 10px;
+    width: 100%;
+    overflow: visible;
+}
+
+.progress {
+    height: 100%;
+    background: #FFC700;
+    border-radius: 10px 0 0 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.progress-icons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: -15px; 
+    left: 0;
+    z-index: 2;
+    border: #4E5A87;
+}
+
+.icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid #6580A7;
+    background: #E1E8FF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;    /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+}
+
+.icon img {
+    width: 1.5rem; /* Adjust size as needed */
+    height: 1.5rem;
+    object-fit: cover;
+}
+
+.progress::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    background: #FFC700;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.icon.filled {
+    background: #FFC700;
+    border: 2px solid #4E5A87;
+}
+
+.icon.filled::before {
+    background: #FFC700;
+}
+
+
+.statistics {
+    display: flex;
+    gap: 2rem;
+}
+
+.study-statistic,
+.assessment-marks {
+    background: #FFFFFF;
+    padding: 2rem;
+    border-radius: 10px;
+    flex-grow: 1;
+}
+
+.title {
+    font-size: 2rem;
+    color: #4D70A5;
+    margin-bottom: 1rem;
+}
+
+.chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.bar {
+    width: 3rem;
+    background: #97ADFD;
+    border-radius: 3rem 3rem 0 0;
+}
+
+.bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.days {
+    padding-top: 10px;
+}
+
+.days span {
+    font-size: 1rem;
+    color: #4E5A87;
+}
+
+.marks-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.circle {
+    width: 10rem;
+    height: 10rem;
+    background: conic-gradient(#FFC700 0% 75%, #97ADFD 75% 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.percentage {
+    font-size: 2rem;
+    color: #4E5A87;
+}
+
+.text-button {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem; /* Adjust font size as needed */
+    font-weight: 500;
+    color: #4E5A87;
+    background-color: #E4EDFF; /* Assuming background similar to the provided image */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.text-button .arrow {
+    margin-left: 10px;
+    font-size: 1.2rem; /* Adjust arrow size as needed */
+}
+
+.text-button:hover {
+    text-decoration: underline; /* Slightly darker shade on hover */
+}
+
+.feedback {
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem; /* Adjust font size as needed */
+    color: #4E5A87;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.feedback .fbicon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.feedback:hover {
+    text-decoration: underline;
+    text-decoration-style: solid;
+}
+
+.course-container {
+    width: 80%;
+    margin-top: 30px;
+    margin-right: 150px;
+}
+
+.course {
+    background-color: #ABC7E8;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-content-container {
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    padding: 10px;
+}
+
+.mycourse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.mycourse-header h2 {
+    font-size: 1.5rem;
+    color: #4D70A5;
+    margin: 0;
+}
+
+
+.cprogress {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 130px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cprogress-bar {
+    width: 60px; /* Set to match your design */
+    height: 20px;
+    border-radius: 20px;
+    background:
+    linear-gradient(orange 0 0) 0/0% no-repeat
+    #ABC7E8;
+    border: 1px solid white; /* White border around the progress bar */
+    margin-right: 10px;
+}
+
+.cprogress-text {
+    font-size: 0.8rem;
+    color: white;
+    margin-right: 10px;
+}
+
+.module-title {
+    font-size: 1rem;
+    color: #ABC7E8;
+    margin-top: 10px;
+}
+
+.course-content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lesson {
+    display: flex;
+    align-items: center;
+}
+
+.lesson-icon {
+    width: 20px;
+    height: 20px;
+    background-color: #E1E8FF;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.lesson-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.course-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.course-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #E1E8FF;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #4D70A5;
+}
+
+.pin-button {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: #4D70A5;
+    cursor: pointer;
+}
+
+.expand-icon {
+    font-size: 1.2rem;
+    color: #4D70A5;
+}
+
+/*journey*/
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    background: #FFFFFF;
+    border-radius: 10px;
+    width: 200px;
+    height: 70px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #4D70A5;
+}
+
+.stat-value {
+    font-size: 40px;
+    color: #FFC700;
+    font-weight: 300;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.chart-box{
+    background: #FFFFFF;
+    border-radius: 30px;
+    width: 49%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.record-box {
+    background: #FFFFFF;
+    border-radius: 30px;
+    width: 40%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-title, .record-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4D70A5;
+    margin-bottom: 20px;
+}
+
+.chart-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 200px;
+}
+
+.chart-bar {
+    width: 12%;
+    background: #97ADFD;
+    border-radius: 10px 10px 0 0;
+}
+
+.calendar-container {
+    background: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 40%;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4D70A5;
+    display: flex;
+    align-items: center;
+}
+
+.calendar-icon {
+    margin-right: 8px;
+}
+
+.calendar-month {
+    text-align: right;
+}
+
+.calendar-month-number {
+    font-size: 50px;
+    color: #ABC7E8;
+    font-weight: 700;
+}
+
+.calendar-month-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: #4D70A5;
+    margin-top: 5px;
+}
+
+.calendar-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 5px;
+    color: #ABC7E8;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+.calendar-weekdays-text {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Creates 7 equal columns */
+    gap: 5px; /* Adds space between the grid items */
+    justify-items: center; /* Centers the items horizontally */
+    align-items: center; /* Centers the items vertically */
+}
+
+.calendar-day, .calendar-empty {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4A5660;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.calendar-empty {
+    visibility: hidden;
+}
+
+.calendar-day {
+    background: #F0F0F0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Hover effect for calendar days */
+.calendar-day:hover {
+    background: #E0E0E0;
+}
+
+/* Highlighted style for today's date */
+.highlighted,
+.attended-day {
+    background: #FFC700; /* Same yellow color */
+    color: #FFFFFF;
+}
+
+.badges-container {
+    background: #FFFFFF;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.badge-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4D70A5;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.badge-box {
+    display: flex;
+    flex-wrap: wrap; /* Allows badges to wrap to new lines */
+    gap: 4rem;
+    justify-content: center; /* Centers the badges horizontally */
+}
+
+.badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 150px; /* Adjust width as needed */
+}
+
+.badge img {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 10px;
+}
+
+.badge p {
+    font-size: 16px;
+    font-weight: 600;
+    color: #4D70A5;
+    margin-top: 0;
+    text-align: center;
+}
+
+.content h2 {
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the font bold */
+    color: #5A7392; /* Adjust the color to a soft blue */
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Vertically center the text with the line */
+}
+
+.content h2::before {
+    content: '';    
+    display: inline-block;
+    width: 3px; /* Thickness of the vertical line */
+    height: 100%; /* Height of the line matching the text */
+    background-color: #ADC4E6; /* Light blue color for the line */
+    margin-right: 10px; /* Space between the line and text */
+}
+
+/* Button styling */
+.new-btn {
+    background-color: #6F8FC7;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.new-btn:hover {
+    background-color: #ADC4E6;
+}
+
+.card-content {
+    display: flex;
+    justify-content: flex-start; /* Ensures the container aligns everything to the left */
+    padding: 0 20px; /* Adds some padding for the main container */
+}
+
+.card-content h2{
+    font-size: 1.5rem;
+}
+
+.card-content h2::before {
+    content: '';
+    display: inline-block;
+    width: 3px; /* Thickness of the vertical line */
+    height: 100%; /* Height of the line matching the text */
+    background-color: #ADC4E6; /* Light blue color for the line */
+    margin-right: 10px; /* Space between the line and text */
+}
+
+/* Card container */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Defines a grid layout */
+    gap: 20px; /* Consistent gap between cards */
+    width: 100%; /* Ensures the grid uses the full width */
+}
+
+/* Card styles */
+.card {
+    background-color: #fff;
+    border: 1px solid #E0E7FF;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+}
+
+.card-body {
+    flex-grow: 1; /* Allows the main content to grow */
+}
+
+.card-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #5A7392;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-header i {
+    margin-right: 8px;
+}
+
+.card-body p {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.edit-btn {
+    background-color: #ADC4E6;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.edit-btn i {
+    font-size: 0.9rem;
+}
+
+.edit-btn:hover {
+    background-color: #789CC1;
+}
+
+.status-indicator {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #4CAF50; /* Green color for "Published" */
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.status-indicator.unpublished {
+    color: #FF5722; /* Orange color for "Unpublished" */
+}
+
+/* Delete button styling to match edit button */
+.delete-btn {
+    background-color: #FF6B6B; /* Red for delete */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #FF4C4C; /* Darker red on hover */
+}
+
+/* Card footer to hold buttons */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: absolute;  /* Absolute within the container */
+    background-color: rgba(0, 0, 0, 0.8);  /* Dark background for visibility */
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 9999;
+    pointer-events: none;  /* Ensure the tooltip doesn't interfere with mouse events */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.dropdown {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.status-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4A90E2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    font-size: 14px;
+    color: #4A90E2;
+}
+
+.status-circle.completed {
+    background-color: #4A90E2;
+    color: #fff;
+}
+
+.top-courses {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    min-height: 200px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+.top-courses h2 {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.course-header, .course-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 2fr 100px;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.course-header {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.popularity-bar {
+    background: #f0f0f0;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.popularity-fill {
+    background: #4a90e2;
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.completion-rate {
+    color: #ff9800;
+    font-weight: 500;
+}
+
+/* Add different colors for different courses */
+.course-row:nth-child(2) .popularity-fill {
+    background: #ff9800;
+}
+
+.course-row:nth-child(3) .popularity-fill {
+    background: #2196f3;
+}
+
+.course-row:nth-child(4) .popularity-fill {
+    background: #4caf50;
+}
+
+.course-col {
+    padding: 0 10px;
+}
+
+.new-user-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    min-height: 400px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.new-user-box h2 {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+#new-user-chart {
+    width: 100% !important;
+    height: 350px !important;
+}
+
+.header2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header2 h2 {
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the font bold */
+    color: #5A7392; /* Adjust the color to a soft blue */
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Vertically center the text with the line */
+}
+
+.header2 h2::before {
+    content: '';    
+    display: inline-block;
+    width: 3px; /* Thickness of the vertical line */
+    height: 100%; /* Height of the line matching the text */
+    background-color: #ADC4E6; /* Light blue color for the line */
+    margin-right: 10px; /* Space between the line and text */
+}
+

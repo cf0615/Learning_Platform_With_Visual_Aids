@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Detail</title>
+    <link rel="stylesheet" href="../static/css/post-details.css">
+    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
+    <link rel="stylesheet" href="../static/css/popup.css">
+    <style>
+        /* Editor container */
+        .editor-container {
+            width: 96%;
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        /* Toolbar styling */
+        #toolbar-container {
+            background-color: #E4EDFF;
+            border: none;
+        }
+
+        /* Editor styling */
+        #editor-container {
+            height: 300px;
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        /* Submit button styling */
+        #submitPost {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #486A9A;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        #submitPost:hover {
+            background-color: #36577A;
+        }
+
+        /* Post styling */
+        .post {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .post-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .post-problem-type {
+            font-size: 14px;
+            color: gray;
+            margin-bottom: 10px;
+        }
+
+        /* Code block styling */
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 5px;
+            border-radius: 3px;
+            display: block;
+            white-space: pre;
+        }
+
+        /* Undo/redo icon button styling */
+        .ql-icons {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header (similar to discussion page) -->
+        <div class="header">
+            <div class="logo">VizL</div>
+            <nav>
+                <a href="/user/dashboard" class="nav-item"><b>HOME</b></a>
+                <a href="/user/catalog" class="nav-item">CATALOG</a>
+                <a href="/user/discussion" class="nav-item">DISCUSSION</a>
+            </nav>
+            <div>              
+            </div>
+            <div class="user-info">
+                <div class="notification-icon" id="notification-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 16V11C18 7.93 16.37 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.64 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16ZM16 17H8V11C8 8.52 9.51 6.5 12 6.5C14.49 6.5 16 8.52 16 11V17Z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="user-icon"></div>
+                <div class="user-name">Chuuung</div>
+            </div>
+        </div>
+        <div class="announcement-list hidden" id="announcement-list"></div>
+        <!-- Main content for displaying the post -->
+        <div class="main-content">
+            <div class="post-container">
+                <div class="post-header">
+                    <h2 id="post-title">Post Title Here</h2>
+                    <div id="post-meta">Author and Date</div>
+                </div>
+                <div class="vote-container">
+                    <div class="vote-section">
+                        <div class="triangle-up" id="upvote-btn"></div>
+                        <div class="vote-text" id="vote-count">0</div>
+                        <div class="triangle-down" id="downvote-btn"></div>
+                    </div>
+                </div>
+                <div id="post-content" class="post-content">
+                    <!-- Post content will be dynamically inserted here -->
+                </div>
+                
+                <div class="dots" onclick="this.classList.toggle('active');">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="container cut">
+                      <div class="drop cut2"></div>
+                    </div>
+                    <div class="list">
+                      <ul>
+                        <li id="mark-answered">Mark as Answered</li>
+                        <li id="edit-post">Edit</li>
+                        <li id="delete-post">Delete</li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="comments-section">
+                <h3>Comments</h3>
+                <div id="comments-container"></div>
+            
+                <div class="add-comment-section">
+                    <div class="editor-container">
+                        <div id="toolbar-container">
+                            <!-- Toolbar buttons -->
+                            <span class="ql-formats">
+                                <select class="ql-font">
+                                    <option selected>Sans Serif</option>
+                                    <option value="serif">Serif</option>
+                                    <option value="monospace">Monospace</option>
+                                </select>
+                                <select class="ql-size">
+                                    <option value="small"></option>
+                                    <option selected>Normal</option>
+                                    <option value="large"></option>
+                                    <option value="huge"></option>
+                                </select>
+                                <button class="ql-bold"></button>
+                                <button class="ql-italic"></button>
+                                <button class="ql-underline"></button>
+                                <button class="ql-strike"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-code-block"></button>
+                                <button class="ql-blockquote"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-list" value="ordered"></button>
+                                <button class="ql-list" value="bullet"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-image"></button>
+                                <button class="ql-link"></button>
+                            </span>
+                            <!-- Undo and Redo Icon Buttons -->
+                            <span class="ql-formats">
+                                <button id="undo" class="ql-icons" title="Undo">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Undo" style="width:18px;">
+                                </button>
+                                <button id="redo" class="ql-icons" title="Redo">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="Redo" style="width:18px;">
+                                </button>
+                            </span>
+                        </div>
+                        <div id="editor-container"></div>
+                        <button id="submit-comment-btn">Submit Comment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="{{ url_for('static', filename='js/timeTracking.js') }}"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script type="module" src="../static/js/post-details.js"></script>
+    <script type="module" src="../static/js/updateUser.js"></script>
+</body>
+</html>

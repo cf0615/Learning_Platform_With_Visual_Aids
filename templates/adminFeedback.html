@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback List</title>
+    <link rel="stylesheet" href="../static/css/discussion.css">
+    <link rel="stylesheet" href="../static/css/feedback.css">
+    <link rel="stylesheet" href="../static/css/popup.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">VizL</div>
+            <nav>
+                <a href="/admin/dashboard" class="nav-item">HOME</a>
+                <a href="/admin/notify" class="nav-item">NOTIFY</a>
+                <a href="/admin/discussion" class="nav-item">DISCUSSION</a>
+                <a href="/admin/feedback" class="nav-item"><b>FEEDBACK</b></a>
+            </nav>
+            <div>
+            </div>
+            <div class="user-info">
+                <div class="user-icon"></div>
+                <div class="user-name">Chuuung</div>
+            </div>
+        </div>
+        <div class="main-content" style="justify-content: center;">
+            <div class="discussion-content">
+                <div class="discussion-header">
+                    <h2>| Feedback List</h2>
+                    <div class="search-discussions">
+                        <input type="text" placeholder="Search Feedback">
+                    </div>
+                </div>
+                
+                <div class="feedback-container">
+                    <div class="discussion-list" id="feedback-list">
+                        <!-- Feedback items will be appended here -->
+                    </div>
+                </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script type="module" src="../static/js/adminFeedback.js"></script>
+    <script type="module" src="../static/js/updateUser.js"></script>
+    <script type="module" src="{{ url_for('static', filename='js/timeTracking.js') }}"></script>
+
+    <script>
+        document.getElementById('ask-new-btn').addEventListener('click', function(){
+            window.location.href = '/user/addNewPost';
+        });
+    </script>
+</body>
+</html>

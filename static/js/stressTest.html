@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stress Test Runner</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #status { margin: 20px 0; padding: 10px; background: #f5f5f5; }
+        button { padding: 10px 20px; margin: 5px; }
+        .input-group { margin: 10px 0; }
+        .input-group label { display: block; margin-bottom: 5px; }
+        .input-group input { padding: 5px; width: 200px; }
+    </style>
+</head>
+<body>
+    <h1>Stress Test Runner</h1>
+    <div class="input-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+    </div>
+    <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+    </div>
+    <div id="controls">
+        <button onclick="startTest()">Start Stress Test</button>
+    </div>
+    <div id="status">Status: Ready</div>
+
+    <script type="module">
+        import { runTests } from './runStressTest.js';
+        
+        window.startTest = async function() {
+            const statusDiv = document.getElementById('status');
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (!email || !password) {
+                statusDiv.textContent = 'Status: Please enter email and password';
+                return;
+            }
+            
+            statusDiv.textContent = 'Status: Running tests...';
+            
+            try {
+                await runTests(email, password);  // Pass the credentials here
+                statusDiv.textContent = 'Status: Tests completed! Check downloaded report.';
+            } catch (error) {
+                statusDiv.textContent = 'Status: Error running tests: ' + error.message;
+            }
+        };
+    </script>
+</body>
+</html> 

@@ -1,0 +1,195 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #E4EDFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    display: flex;
+    background-color: #E4EDFF;
+    overflow: hidden;
+}
+
+.login-image img {
+    width: 600px; /* Adjust based on your image size */
+    height: auto;
+    margin-top: 100px;
+}
+
+.login-form {
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.login-form h1 {
+    text-align: center;
+    color: #4D70A5;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.1em;
+}
+
+/* Input Group */
+.input-group {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-group ::placeholder {
+    color: #FFFFFF;
+    padding-left: 3%;
+}
+
+.input-group input {
+    width: 100%;
+    height: 61px;
+    background: #97ADFD;
+    border: 3px solid #6080B0;
+    border-radius: 100px;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 22px;
+    color: #fff;
+    position: relative;
+}
+
+/* Add underline using pseudo-element */
+.input-group input::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 10px;
+    height: 2px;
+    background-color: #FFFFFF;
+}
+
+.input-group input:focus::after {
+    background-color: #4D70A5; /* Change color on focus */
+}
+
+/* Eye Icon Position */
+.eye-icon {
+    position: absolute;
+    top: 40%;
+    right: 20px;
+    transform: translateY(-50%); /* Center it vertically */
+    cursor: pointer;
+    display: flex;               /* Ensures it aligns well with the text */
+    align-items: center;         /* Centers icon within its container */
+    justify-content: center;     /* Centers icon within its container */
+    height: 100%;                /* Match the height of the input field */
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.login-btn,
+.signup-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 100px;
+    font-size: 22px;
+    cursor: pointer;
+    height: 64px;
+}
+
+.login-btn {
+    width: 202px;
+    border: 5px solid #4D70A5;
+    background-color: #fff;
+    color: #4D70A5;
+}
+
+.signup-btn {
+    width: 195px;
+    background-color: #4D70A5;
+    color: #FFFFFF;
+    border: 5px solid #FFFFFF;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 22px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #4E5A87;
+}
+
+.forgot-password a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Error Message */
+.error-message {
+    color: #ff4d4d;       /* Set color to red or any color you prefer for errors */
+    font-size: 0.9em;     /* Slightly smaller font size */
+    margin-top: 4px;      /* Small space between the input and the error message */
+    display: block;       /* Ensure it takes up a whole line under the input */
+    height: 1.2em;        /* Reserve space for error message even when it's empty */
+}
+
+.profile-label {
+    font-size: 18px;
+    color: #4D70A5;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#profile-picture {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #97ADFD;
+    border: 3px solid #6080B0;
+    border-radius: 100px;
+    color: #fff;
+}
+
+.profile-preview-img {
+    width: 100px;         /* Adjust size as needed */
+    height: 100px;
+    border-radius: 50%;   /* Makes it circular */
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid #6080B0;
+}
+
+.upload-btn {
+    width: 100%;
+    height: 40px;
+    background-color: #4D70A5;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.upload-btn:hover {
+    background-color: #3a5c8e;
+}

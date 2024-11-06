@@ -1,0 +1,91 @@
+/* Feedback item styling for compact list view */
+.feedback-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-family: Arial, sans-serif;
+}
+
+.feedback-profile-section {
+    margin-right: 10px;
+}
+
+.feedback-profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.feedback-main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.feedback-title-and-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #486A9A;
+}
+
+.feedback-link {
+    text-decoration: none;
+    color: #486A9A;
+}
+
+.feedback-link:hover {
+    text-decoration: underline;
+}
+
+.feedback-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: #888;
+    flex-wrap: wrap;
+}
+
+.feedback-answered-badge {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.feedback-container {
+    background-color: #FFFFFF; /* White background */
+    padding: 20px;            /* Add padding inside the container */
+    border-radius: 10px;      /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
+    width: 100%;
+    margin: 20px auto;        /* Center the container */
+}
+
+.feedback-status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.status-replied {
+    background-color: #28a745;
+    color: white;
+}
+
+.status-pending {
+    background-color: #ffc107;
+    color: #000;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/css/dashboardcss.css">
+    <link rel="stylesheet" href="../static/css/popup.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">VizL</div>
+            <nav>
+                <a href="/admin/dashboard" class="nav-item"><b>HOME</b></a>
+                <a href="/admin/notify" class="nav-item">NOTIFY</a>
+                <a href="/admin/discussion" class="nav-item">DISCUSSION</a>
+                <a href="discussion.html" class="nav-item">FEEDBACK</a>
+            </nav>
+            <div></div>
+            <div class="user-info">
+                <div class="user-icon"></div>
+                <div class="user-name">Chuuung</div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="sidebar">
+                <a class="menu-item" href="/admin/dashboard">Dashboard</a>
+                <a class="menu-item selected" href="/admin/catalog">Catalog</a>
+            </div>
+            <div class="content">
+                <div class="header2">
+                    <h2>Catalog</h2>
+                    <button class="new-btn" id="addCourseBtn">+ New</button>
+                </div>
+                <div class="card-container">
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="module" src="../static/js/adminCatalog.js"></script>
+<script type="module" src="../static/js/updateUser.js"></script>

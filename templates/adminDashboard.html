@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/css/dashboardcss.css">
+    <link rel="stylesheet" href="../static/css/popup.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">VizL</div>
+            <nav>
+                <a href="/admin/dashboard" class="nav-item"><b>HOME</b></a>
+                <a href="/admin/notify" class="nav-item">NOTIFY</a>
+                <a href="/admin/discussion" class="nav-item">DISCUSSION</a>
+                <a href="/admin/feedback" class="nav-item">FEEDBACK</a>
+            </nav>
+            <div></div>
+            <div class="user-info">
+                <div class="user-icon"></div>
+                <div class="user-name">Chuuung</div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="sidebar">
+                <a class="menu-item selected" href="/admin/dashboard">Dashboard</a>
+                <a class="menu-item" href="/admin/catalog">Catalog</a>
+            </div>
+            <div class="content">
+                <div id="top-courses" class="top-courses">
+                    <!-- Top Courses will be injected here -->
+                </div>
+                
+                <div class="new-user-box">
+                    <h2>New User</h2>
+                    <canvas id="new-user-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="../static/js/adminDashboard.js"></script>
+<script type="module" src="../static/js/updateUser.js"></script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Board</title>
+    <link rel="stylesheet" href="../static/css/discussion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">VizL</div>
+            <nav>
+                <a href="/admin/dashboard" class="nav-item">HOME</a>
+                <a href="/admin/notify" class="nav-item">NOTIFY</a>
+                <a href="/admin/discussion" class="nav-item"><b>DISCUSSION</b></a>
+                <a href="/admin/feedback" class="nav-item">FEEDBACK</a>
+            </nav>
+            <div>
+            </div>
+            <div class="user-info">
+                <div class="user-icon"></div>
+                <div class="user-name">Chuuung</div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="filter-title">Filter</div>
+                <div class="filter-section">
+                    <p>Languages</p>
+                    <div class="filter-option"><input type="checkbox" id="filter-cpp"> C++</div>
+                    <div class="filter-option"><input type="checkbox" id="filter-java"> Java</div>
+                    <div class="filter-option"><input type="checkbox" id="filter-python"> Python</div>
+                </div>
+                <div class="filter-section">
+                    <p>Status</p>
+                    <div class="filter-option"><input type="checkbox" id="filter-answered"> Answered</div>
+                    <div class="filter-option"><input type="checkbox" id="filter-no-answer"> No Answer</div>
+                </div>
+            </div>
+            <div class="discussion-content">
+                <div class="discussion-header">
+                    <h2>| Discussion</h2>
+                    <div class="search-discussions">
+                        <input type="text" id="search-input" placeholder="Search Discussion">
+                    </div>
+                    <button class="ask-new-btn" id="ask-new-btn">+ Ask New</button>
+                </div>
+                <div class="filter-sort" id="filter-sort">
+                    <select id="sort-option">
+                        <option value="most-vote">Most vote</option>
+                        <option value="recent">Recent</option>
+                    </select>
+                </div>
+                <div class="discussion-list" id="discussion-list">
+                    <!--discussion items-->
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script type="module" src="../static/js/adminDiscussion.js"></script>
+    <script type="module" src="{{ url_for('static', filename='js/timeTracking.js') }}"></script>
+    <script type="module" src="../static/js/updateUser.js"></script>
+
+    <script>
+        document.getElementById('ask-new-btn').addEventListener('click', function(){
+            window.location.href = '/admin/addNewPost';
+        });
+    </script>
+    <script type="module" src="../static/js/popup.js"></script>
+    <link rel="stylesheet" href="../static/css/popup.css">
+</body>
+</html>

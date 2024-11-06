@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="../static/css/discussion.css">
+    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
+    <link rel="stylesheet" href="../static/css/popup.css">
+    <style>
+        /* Main content styling */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            width: auto;
+        }
+
+        /* Discussion form container */
+        .discussion-form {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        /* Form row styling */
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        /* Title field (70% width) */
+        .form-group.title-group {
+            flex-basis: 100%;
+        }
+
+        /* Category field (20% width) */
+        .form-group.category-group {
+            flex-basis: 20%;
+        }
+
+        /* Ensure the fields don't shrink */
+        .form-group {
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+
+        /* Add spacing between the two fields */
+        .form-row .form-group + .form-group {
+            margin-left: 10px;
+        }
+
+        /* Input and select styling */
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Editor container */
+        .editor-container {
+            width: 96%;
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        /* Toolbar styling */
+        #toolbar-container {
+            background-color: #E4EDFF;
+            border: none;
+        }
+
+        /* Editor styling */
+        #editor-container {
+            height: 300px;
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        /* Submit button styling */
+        #submitPost {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #486A9A;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        #submitPost:hover {
+            background-color: #36577A;
+        }
+
+        /* Post styling */
+        .post {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .post-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .post-problem-type {
+            font-size: 14px;
+            color: gray;
+            margin-bottom: 10px;
+        }
+
+        /* Code block styling */
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 5px;
+            border-radius: 3px;
+            display: block;
+            white-space: pre;
+        }
+
+        /* Undo/redo icon button styling */
+        .ql-icons {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!--Header -->
+        <div class="header">
+            <div class="logo">VizL</div>
+            <nav>
+                <a href="/user/dashboard" class="nav-item"><b>HOME</b></a>
+                <a href="/user/catalog" class="nav-item">CATALOG</a>
+                <a href="/user/discussion" class="nav-item">DISCUSSION</a>
+            </nav>
+            <div>
+            </div>
+            <div class="user-info">
+                <div class="notification-icon" id="notification-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 16V11C18 7.93 16.37 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.64 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16ZM16 17H8V11C8 8.52 9.51 6.5 12 6.5C14.49 6.5 16 8.52 16 11V17Z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="user-profile-menu">
+                    <div class="user-icon"></div>
+                    <div class="user-name">Chuuung</div>
+                    <div class="user-dropdown hidden">
+                        <ul>
+                            <li id="edit-profile">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                                </svg>
+                                Edit Profile
+                            </li>
+                            <li id="logout">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
+                                </svg>
+                                Logout
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="announcement-list hidden" id="announcement-list"></div>
+        <!-- Main content -->
+        <div class="main-content">
+            <h2>Feedback</h2>
+
+            <!-- Discussion Form -->
+            <div class="discussion-form">
+                <!-- Title and Category Inputs -->
+                <div class="form-row">
+                    <div class="form-group title-group">
+                        <label for="post-title">Feedback Title</label>
+                        <input type="text" id="feedback-title" placeholder="Enter your feedback title">
+                    </div>
+                </div>
+
+                <!-- Quill Editor -->
+                <div class="editor-container">
+                    <div id="toolbar-container">
+                        <!-- Toolbar buttons -->
+                        <span class="ql-formats">
+                            <select class="ql-font">
+                                <option selected>Sans Serif</option>
+                                <option value="serif">Serif</option>
+                                <option value="monospace">Monospace</option>
+                            </select>
+                            <select class="ql-size">
+                                <option value="small"></option>
+                                <option selected>Normal</option>
+                                <option value="large"></option>
+                                <option value="huge"></option>
+                            </select>
+                            <button class="ql-bold"></button>
+                            <button class="ql-italic"></button>
+                            <button class="ql-underline"></button>
+                            <button class="ql-strike"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-code-block"></button>
+                            <button class="ql-blockquote"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-list" value="ordered"></button>
+                            <button class="ql-list" value="bullet"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-image"></button>
+                            <button class="ql-link"></button>
+                        </span>
+                        <!-- Undo and Redo Icon Buttons -->
+                        <span class="ql-formats">
+                            <button id="undo" class="ql-icons" title="Undo">
+                                <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Undo" style="width:18px;">
+                            </button>
+                            <button id="redo" class="ql-icons" title="Redo">
+                                <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="Redo" style="width:18px;">
+                            </button>
+                        </span>
+                    </div>
+                    <div id="editor-container"></div>
+                </div>
+
+                <!-- Submit Button -->
+                <button id="submitPost">Submit Feedback</button>
+            </div>
+
+            <!-- Display Submitted Posts -->
+            <div id="posts-container"></div>
+        </div>
+    </div>
+
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script type="module" src="../static/js/firebase-config.js"></script>
+    <script type="module" src="../static/js/feedback.js"></script>
+    <script type="module" src="{{ url_for('static', filename='js/timeTracking.js') }}"></script>
+    <script type="module" src="../static/js/updateUser.js"></script>
+
+</body>
+</html>

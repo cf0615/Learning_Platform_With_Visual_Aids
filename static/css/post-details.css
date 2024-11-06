@@ -1,0 +1,723 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #E4EDFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.dashboard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(0deg, #4D70A5, #4D70A5);
+    color: #FFFFFF;
+}
+
+.logo {
+    font-size: 2.5rem;
+    margin-left: 55px;
+    margin-right: -100px;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-item {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(217, 217, 217, 0.5);
+    border: 2px solid #FFFFFF;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 95% center;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    color: #FFFFFF;
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-icon {
+    width: 3rem;
+    height: 3rem;
+    background: #FFFFFF;
+    border-radius: 50%;
+}
+
+.user-name {
+    font-size: 1.5rem;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 2rem auto;  /* Center the content */
+    background-color: #E4EDFF;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-right: 4rem;
+}
+
+.post-header h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 5rem;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #888888;
+}
+
+.post-content {
+    background: #F7F9FF;
+    padding: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #E0E7FF;
+    margin-bottom: 2rem;
+    margin-left: 5rem;
+    flex-grow: 1;
+}
+
+.comment-section {
+    margin-top: 2rem;
+    background: #F9F9F9;
+    padding: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #E0E7FF;
+}
+
+.comment-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #E0E7FF;
+    border-radius: 20px;
+    background-color: #F9F9F9;
+    padding: 20px;
+}
+
+.comment-author {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.comment-date {
+    font-size: 0.9rem;
+    color: #888888;
+    margin-left: 10px;
+}
+
+.add-comment-section {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-comment-section textarea {
+    width: 100%;
+    height: 80px;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    font-size: 1rem;
+    resize: none;
+}
+
+.add-comment-section button {
+    align-self: flex-start;
+    background-color: #4D70A5;
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.add-comment-section button:hover {
+    background-color: #3C5A89;
+}
+
+/* General text styling for different font sizes and types */
+.ql-size-small {
+    font-size: 0.8rem;  /* Small Sans Serif */
+}
+
+.ql-size-large {
+    font-size: 1.5rem;  /* Large Serif */
+}
+
+.ql-size-huge {
+    font-size: 2rem;    /* Huge Monospace */
+}
+
+.ql-font-serif {
+    font-family: 'Times New Roman', serif; /* Serif font for specific elements */
+}
+
+.ql-font-monospace {
+    font-family: 'Courier New', monospace; /* Monospace font for code */
+}
+
+/* StackOverflow-like styling for code blocks */
+.ql-syntax {
+    background-color: #f6f8fa;  /* Light grey background */
+    border: 1px solid #dfe2e5;  /* Slight border around code block */
+    border-radius: 4px;
+    padding: 1rem;  /* Add padding inside the code block */
+    font-family: 'Courier New', monospace; /* Use a monospaced font */
+    color: #333333;  /* Dark text color */
+    font-size: 0.9rem;  /* Adjusted font size for code */
+    overflow-x: auto;   /* Allow scrolling if code is too wide */
+    white-space: pre-wrap; /* Preserve formatting */
+}
+
+/* StackOverflow-like styling for blockquote */
+blockquote {
+    background-color: #f9f9f9;  /* Light grey background */
+    border-left: 4px solid #dfe2e5;  /* Left border to highlight the quote */
+    padding: 1rem;  /* Add padding inside blockquote */
+    font-style: italic;  /* Italicize blockquote text */
+    margin: 1rem 0;  /* Add some spacing around the blockquote */
+    color: #555555;  /* Grey color for the quote text */
+}
+
+.vote-container{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.vote-section {
+    position: absolute;            /* Absolute positioning to keep it on the left side */
+    top: 50%;                      /* Vertical center of the container */
+    left: 0;                       /* Keep it fixed on the left side */
+    transform: translateY(-45%);   /* Correct for centering offset */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 20px;
+}
+
+.triangle-up, .triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    cursor: pointer;
+}
+
+.triangle-up {
+    border-bottom: 20px solid #ccc; /* Default grey */
+}
+
+.triangle-down {
+    border-top: 20px solid #ccc; /* Default grey */
+}
+
+.triangle-up.active {
+    border-bottom-color: rgb(0, 174, 255); /* Active state for upvote */
+}
+
+.triangle-down.active {
+    border-top-color: yellow; /* Active state for downvote */
+}
+
+/* Style for the vote text */
+.vote-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.dots {
+    position: absolute;
+    top: 18px;
+    right: 45px;
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .dot {
+    background-color: #ccc;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    margin: 3px 0;
+  }
+  
+  .list {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .dots.active .list {
+    display: block;
+  }
+  
+  .list ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .list li {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+  }
+  
+  .list li:last-child {
+    border-bottom: none;
+  }
+  
+  .list li:hover {
+    background-color: #f5f5f5;
+  }
+
+.post-container {
+    height: auto;
+    width: auto;
+    padding: 20px;
+    background-color: #888888;
+    position: relative;
+}
+
+/* Keep the original functionality, just update the styling */
+.post-container {
+    background: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.vote-section {
+    position: absolute;
+    left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.triangle-up, .triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.triangle-up {
+    border-bottom: 12px solid #4D70A5;
+}
+
+.triangle-down {
+    border-top: 12px solid #4D70A5;
+}
+
+.vote-text {
+    font-weight: bold;
+    color: #4D70A5;
+}
+
+.post-header {
+    margin-left: 4rem;
+    margin-bottom: 2rem;
+}
+
+.post-content {
+    margin-left: 4rem;
+    padding: 1.5rem;
+    background: #F7F9FF;
+    border-radius: 10px;
+    border: 1px solid #E0E7FF;
+}
+
+.comments-section {
+    background: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.comment-item {
+    background: #F7F9FF;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    border: 1px solid #E0E7FF;
+    display: flex;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+}
+
+/* Editor styling */
+.editor-container {
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid #E0E7FF;
+    margin-top: 1rem;
+}
+
+#toolbar-container {
+    background: #F7F9FF;
+    border-bottom: 1px solid #E0E7FF;
+    padding: 0.5rem;
+}
+
+#editor-container {
+    min-height: 150px;
+    padding: 1rem;
+}
+
+#submit-comment-btn {
+    background: #4D70A5;
+    color: #FFFFFF;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 1rem;
+    transition: background 0.2s ease;
+}
+
+#submit-comment-btn:hover {
+    background: #3C5A89;
+}
+
+.dots {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+}
+
+.list {
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.list li {
+    padding: 0.8rem 1.5rem;
+    color: #4D70A5;
+    cursor: pointer;
+}
+
+.list li:hover {
+    background: #F7F9FF;
+}
+
+/* Post container and header improvements */
+.post-container {
+    background: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 2rem;
+    position: relative;
+    min-height: 200px;
+}
+
+/* Vote section adjustments */
+.vote-section {
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 30px;
+}
+
+.triangle-up, .triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.triangle-up {
+    border-bottom: 15px solid #4D70A5;
+}
+
+.triangle-down {
+    border-top: 15px solid #4D70A5;
+}
+
+.triangle-up:hover {
+    border-bottom-color: #2C4A7A;
+}
+
+.triangle-down:hover {
+    border-top-color: #2C4A7A;
+}
+
+.vote-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4D70A5;
+    margin: 5px 0;
+}
+
+/* Post title and content adjustments */
+.post-header {
+    margin-left: 5rem;
+    margin-bottom: 2rem;
+}
+
+#post-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2C4A7A;
+    margin-bottom: 0.5rem;
+}
+
+.post-meta {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.post-content {
+    margin-left: 5rem;
+    padding: 1.5rem;
+    background: #F7F9FF;
+    border-radius: 10px;
+    border: 1px solid #E0E7FF;
+}
+
+/* Comments section improvements */
+.comments-section {
+    background: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 2rem;
+}
+
+.comment-item {
+    background: #F7F9FF;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #E0E7FF;
+}
+
+/* Comment author profile picture size adjustment */
+.comment-author-pfp {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment-content {
+    flex-grow: 1;
+}
+
+.comment-author {
+    font-weight: 500;
+    color: #4D70A5;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.comment-date {
+    color: #666;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+/* Options menu (three dots) styling */
+.dots {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.list {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.dots:hover .list {
+    display: block;
+}
+
+.list li {
+    padding: 0.8rem 1.5rem;
+    color: #4D70A5;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.list li:hover {
+    background: #F7F9FF;
+}
+
+/* Fix the comment profile picture size */
+.comment-pfp {
+    width: 20px;  /* Reduced from previous size */
+    height: 20px; /* Reduced from previous size */
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px;
+    background: #F7F9FF;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Update the dots menu styling */
+.dots {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    background-color: #666;
+    border-radius: 50%;
+    margin: 2px 0;
+    transition: background-color 0.2s;
+}
+
+.dots:hover .dot {
+    background-color: #333;
+}
+
+.list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 150px;
+    background: white;
+    border: 1px solid #E0E7FF;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dots.active .list {
+    display: block;
+}
+
+.list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list li {
+    padding: 10px 15px;
+    color: #4D70A5;
+    font-size: 14px;
+    border-bottom: 1px solid #E0E7FF;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.list li:last-child {
+    border-bottom: none;
+}
+
+.list li:hover {
+    background-color: #F7F9FF;
+}
